@@ -57,7 +57,7 @@ app.use(passport.session());
 
 // Configure login route
 app.post("/login", passport.authenticate("local", {
-    successRedirect: "/",
+    successRedirect: "/views/index.ejs",
     failureRedirect: "/login",
     failureFlash: true
 }));
@@ -81,7 +81,7 @@ app.post("/register", async (req, res) => {
 
 // Routes
 app.get('/', (req, res) => {
-    res.render("index.ejs"), {name: req.user};
+    res.render("index.ejs"), {name: req.User};
 });
 
 app.get('/login', (req, res) => {
