@@ -6,8 +6,13 @@ const flash = require("express-flash");
 const session = require("express-session");
 const passport = require('passport');
 const mongoose = require('mongoose');
+
 var url = "mongodb+srv://sahapriyanshu88:ezyCplrNUtcKPuiH@cluster0.4qyhzir.mongodb.net/CRN";
 var SECRET = 'my_secret';
+
+// Configure view engine for rendering .ejs files
+app.set("view engine", "ejs");
+
 // Initialize Passport and configure authentication strategies
 initializePassport(
     passport,
@@ -46,11 +51,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(flash());
 app.use(session({
     secret: SECRET,
-    reserve: true,
+    resave: true,
     saveUninitialized: true,
-    cookie:{secure: false}
-})
-)
+    cookie: { secure: false }
+}));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -81,7 +85,7 @@ app.post("/register", async (req, res) => {
 
 // Routes
 app.get('/', (req, res) => {
-    res.render("index.ejs", {name: req.userSchema.name});
+    res.render("index.ejs", { name: req.user ? req.user.name : null });
 });
 
 app.get('/login', (req, res) => {
@@ -94,3 +98,4 @@ app.get('/register', (req, res) => {
 // End Routes
 
 app.listen(3000);
+
