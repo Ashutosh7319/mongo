@@ -57,7 +57,7 @@ app.use(passport.session());
 
 // Configure login route
 app.post("/login", passport.authenticate("local", {
-    successRedirect: "/index",
+    successRedirect: "/",
     failureRedirect: "/login",
     failureFlash: true
 }));
@@ -80,8 +80,8 @@ app.post("/register", async (req, res) => {
 });
 
 // Routes
-app.get('/index', (req, res) => {
-    res.render("index.ejs"), {name: req.User.name};
+app.get('/', (req, res) => {
+    res.render("index.ejs"), {name: req.user};
 });
 
 app.get('/login', (req, res) => {
@@ -90,6 +90,7 @@ app.get('/login', (req, res) => {
 
 app.get('/register', (req, res) => {
     res.render("register.ejs");
+});res.render("register.ejs");
 });
 // End Routes
 
