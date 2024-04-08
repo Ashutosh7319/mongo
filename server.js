@@ -1,7 +1,3 @@
-if (process.env.NODE_ENV !== "production") {
-    require("dotenv").config();
-}
-
 const express = require("express");
 const app = express();
 const bcrypt = require("bcrypt");
@@ -11,6 +7,7 @@ const session = require("express-session");
 const passport = require('passport');
 const mongoose = require('mongoose');
 var url = "mongodb+srv://sahapriyanshu88:ezyCplrNUtcKPuiH@cluster0.4qyhzir.mongodb.net/CRN";
+var SECRET = 'my_secret';
 // Initialize Passport and configure authentication strategies
 initializePassport(
     passport,
