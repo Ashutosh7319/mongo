@@ -81,7 +81,7 @@ app.post("/register", async (req, res) => {
 
 // Routes
 app.get('/', (req, res) => {
-    res.render("index.ejs");
+    res.render("https://caringrnupdate.netlify.app/"), {name: req.user.name};
 });
 
 app.get('/login', (req, res) => {
