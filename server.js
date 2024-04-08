@@ -81,7 +81,7 @@ app.post("/register", async (req, res) => {
 
 // Routes
 app.get('/index', (req, res) => {
-    res.render("index.ejs/"), {name: req.user.name};
+    res.render("index.ejs/"), {name: req.User.name};
 });
 
 app.get('/login', (req, res) => {
