@@ -25,7 +25,7 @@ initializePassport(
 );
 
 // MongoDB connection
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect("mongodb+srv://sahapriyanshu88:ezyCplrNUtcKPuiH@cluster0.4qyhzir.mongodb.net/CRN", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
