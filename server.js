@@ -45,7 +45,7 @@ const User = mongoose.model('User', userSchema);
 app.use(express.urlencoded({ extended: false }));
 app.use(flash());
 app.use(session({
-    secret: process.env.SECRET,
+    secret: SECRET,
     reserve: true,
     saveUninitialized: true,
     cookie:{secure: false}
