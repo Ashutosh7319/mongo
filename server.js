@@ -10,7 +10,7 @@ const flash = require("express-flash");
 const session = require("express-session");
 const passport = require('passport');
 const mongoose = require('mongoose');
-
+const url = process.env.MONGODB_URI;
 // Initialize Passport and configure authentication strategies
 initializePassport(
     passport,
@@ -25,7 +25,7 @@ initializePassport(
 );
 
 // MongoDB connection
-mongoose.connect("mongodb+srv://sahapriyanshu88:ezyCplrNUtcKPuiH@cluster0.4qyhzir.mongodb.net/CRN", {
+mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
