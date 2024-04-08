@@ -57,7 +57,7 @@ app.use(passport.session());
 
 // Configure login route
 app.post("/login", passport.authenticate("local", {
-    successRedirect: "https://caringrnupdate.netlify.app/",
+    successRedirect: "/index",
     failureRedirect: "/login",
     failureFlash: true
 }));
